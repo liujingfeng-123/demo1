@@ -1,19 +1,9 @@
 module.exports = {
   presets: [
+    "react-app",
+    "@babel/preset-env",
     "@babel/preset-react",
-    ["@babel/preset-typescript"],
-    [
-      "@babel/preset-env",
-      {
-        targets: {
-          chrome: 30,
-          ie: "9",
-        },
-        modules: false,
-        useBuiltIns: "usage",
-        corejs: 2,
-      },
-    ],
+    "@babel/preset-typescript",
   ],
   plugins: ["@babel/plugin-transform-runtime"],
 };

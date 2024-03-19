@@ -3,7 +3,8 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-console.log("process.env.NODE_ENV", process.env.NODE_ENV);
+
+const isDev = process.env.NODE_ENV === "development";
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -28,7 +29,7 @@ module.exports = {
         test: /\.less$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: isDev ? "style-loader" : MiniCssExtractPlugin.loader,
           },
           ,
           "css-loader",
